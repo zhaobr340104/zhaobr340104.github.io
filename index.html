@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="bookmark" href="favicon.ico" type="image/x-icon"　/>
-<title>Edge neural network image processing based on FPGA</title>
+<title>FPGA-based CNN surface defect detection </title>
 <style>
 .container {
   display: flex;
@@ -34,6 +34,29 @@
   font-size: 14px;
 }
 </style>
+<style>
+h1 {
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  width: 350px;
+  height: 70px;
+  background-image: url(rvc.png);
+  background-size: cover;
+}
+</style>
+
+<style>
+  body {
+    font-family: "Times New Roman", sans-serif;font-size:20px;
+  }
+</style>
 </head>
 
 <body>
@@ -43,11 +66,14 @@
 </td>
 <td id="layout-content">
 <div id="toptitle">
-<h1>Edge neural network image processing based on FPGA</h1>
+<h1>FPGA-based surface defect detection with neural network</h1>
 </div>
-
+<hr>
 <h2>About this Field</h2>
-<p>In recent years, Convolutional neural network has been widely used in image classification, detection, segmentation and other tasks. However, due to resource and power consumption and other factors, computing and storage intensive CNN is often difficult to deploy effectively in edge computing scenes (robots, UAVs, etc.). This direction mainly explores the software and hardware co deployment scheme of Convolutional neural network in FPGA, focusing on the landing application of machine vision algorithm at the edge.</p>
+<p>With the rapid development of artificial intelligence, deep neural network (DNN) has been widely used in industrial defect detection, intelligent driving, medical research, etc. However, DNN is still limited in the implementation of edge computing and mobile devices due to its characteristics of high model complexity and high computing resource consumption. Deploying deep learning algorithms using FPGA (Field-Programmable Gate Array) is one of the current hot research directions. FPGA is a reconfigurable hardware device that can be dynamically reprogrammed to adapt to different application requirements. Compared to traditional general-purpose processors, FPGA has advantages such as strong parallel processing capability and low power consumption, making it widely used for accelerating compute-intensive tasks.
+
+In the field of deep learning, FPGA can be used to accelerate the inference processes of neural networks. By mapping the computational tasks of neural networks onto FPGAs, efficient parallel computing can be achieved, thereby speeding up the model's inference speed. Additionally, FPGA can optimize specific neural network operations through customized hardware designs, improving computational efficiency.
+</p>
 <p style="text-align:center;">
     <img src=overall.png width="1000px" height="400px"></p>
     <!--<table><tr>-->
@@ -57,6 +83,7 @@
 <!--    <img src=gif1.gif width="600px" height="400px">-->
 <!--    <img src=gif2.gif width="600px" height="400px">-->
 <!--</td></tr></table>-->
+<hr>
 <h2>Some Visualization Demos</h2>
 <p>In this demo, we implemented the Yolo-v2 model based on the ZCU102[<a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">device</a>] development board, migrated the model according to different tasks, and quantize the model with 8 bits. Our project is based on this Project [<a href="https://github.com/dhm2013724/yolov2_xilinx_fpga">Code</a>], and our own code will be updated in the future.</p>
   <div class="container">
@@ -69,6 +96,22 @@
       <p>FPGA system for Universal Object Detection</p>
     </div>
   </div>
+  <p>The left image depicts our FPGA-based system for PCB defect detection, implemented using the YOLO-v2 model. The main steps are as follows:
+
+<p><b>1.Collect PCB dataset</b>: To train and test the model, we obtained a publicly available dataset of PCB defects[<a href="https://robotics.pkusz.edu.cn/resources/dataset/">Dataset</a>]. The dataset encompasses various types, sizes, and defect scenarios of PCB boards, including missing holes, mouse bites, open circuits, short circuits, stray copper, and miscellaneous defects.</p>
+
+<p><b>2.Data preprocessing</b>: Before using the dataset for training, preprocessing operations are performed. This includes tasks like image enhancement, resizing, cropping, and normalization to ensure data consistency and appropriate formatting.</p>
+
+<p><b>3.Model training</b>: Using the preprocessed dataset, we can initiate the training of the deep learning model based on YOLO-v2. The training process typically involves feeding the data into the model, performing forward and backward propagation, and updating the model's weights and biases through optimization algorithms.</p>
+
+<p><b>4.FPGA programming</b>: Upon completing the model training, we transform the model's parameters and structure into a form suitable for running on the FPGA. We optimize the model by quantizing it to 8 bits. Subsequently, we simulate the model using Xilinx HLS tool, perform circuit synthesis and implementation using Vivado.</p>
+
+<p><b>5.FPGA deployment</b>: To visualize the detection process, we first burned an Ubuntu system onto the ZCU102 development board, simplifying the connection of serial ports, screens, and other peripheral interfaces. Then, we develop an ARM program that, along with the bitstream generated in the previous step using Vivado, creates an executable file stored in the development board's SD card. The SD card also contains the Ubuntu system image, PCB defect detection dataset, and other necessary files.</p>
+
+<p><b>6.PCB defect detection</b>: Once the FPGA system is set up, we initiate the program according to the specified instructions, and input the PCB images to be detected into the system. The FPGA system performs rapid inference processing on the images, identifying and marking any existing defects.</p>
+
+<p>Through these steps, we can implement a PCB defect detection system based on the YOLO-v2 model and leverage the high-performance computing capabilities of the FPGA to achieve fast and accurate defect detection.</p>
+<hr>
 <h2>Current Research Field</h2>
 <ul>
 <li><p>Design of Lightweight Model for Industrial Defect Detection.</p>
@@ -80,6 +123,7 @@
 <li><p>FPGA Implementation of Hyperspectral Compressed sensing Algorithm.</p>
 </li>
 </ul>
+<hr>
 <h2>Current Project</h2>
 <ul>
 <li><p>Development of Intelligent Camera for Industrial Glass Defect Detection.</p>
@@ -87,12 +131,14 @@
 <li><p>Development of high-end medical spectral imaging and intelligent detection and analysis instruments.</p>
 </li>
 </ul>
+<hr>
 <h2>Under Reviewer</h2>
 <ol>
 <li><p>Zhao B, Wang Y, Zhang H*, Zhang J, Chen Y, Yang Y, "4-bit CNN quantization method with compact LUT-Based Multiplier implementation on FPGA". IEEE Transactions on Instrumentation and Measurement.</p>
 <li><p>王耀南,潘劲宇,张辉,毛建旭,朱青,赵禀睿,张金洲,陈煜嵘,苏学叁,尹阿婷. 一种基于医药高光谱检测网络的阈值感知低位量化方法[P]. 湖南省：CN115700806A,2023-02-07.[<a href="./patent2.caj">caj</a>]</p>
 </ol>
 <!--<h3>Recent publications </h3>-->
+<hr>
 <h2>Publications</h2>
 <ol>
 <li><p>王耀南,赵禀睿,张辉,毛建旭,朱青,刘敏,周显恩,张金洲,尹阿婷,彭伟星,苏学叁,陈煜嵘. 卷积神经网络软硬件协同加速的异构SoC实现方法[P]. 湖南省：CN113240101B,2022-07-05.[<a href="./patent1.caj">caj</a>]</p>
