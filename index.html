@@ -13,11 +13,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-<!--  flex-wrap: wrap;-->
 }
 
 .item {
-<!--  width: 50%;-->
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
@@ -50,11 +48,66 @@ h1::after {
   background-image: url(rvc.png);
   background-size: cover;
 }
+
+p {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.picItem {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-right:20px;
+}
+
+.picItem p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+#layout-menu {
+  background-color:	#FCFCFC;
+  width: 200px;
+  height: 100%;
+}
+
+#layout-menu .main-menu {
+  margin: 20px 5px;
+  border-bottom: 1px solid 		#F2F2F2;
+}
+
+.menu-content div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#layout-menu div {
+  margin-top: 20px;
+}
+
+#layout-content {
+  padding: 0 15px;
+}
+.footer {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  background-color: #007BB5;
+}
 </style>
 
 <style>
   body {
-    font-family: "Times New Roman", sans-serif;font-size:20px;
+    font-family: "Times New Roman", sans-serif;
+    font-size:20px;
+    margin: 0;
   }
 </style>
 </head>
@@ -63,83 +116,114 @@ h1::after {
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
 <td id="layout-menu">
+  <div class="menu-content">
+    <div>
+      <img src="ai.png" style="width: 80px; height: 80px;" />
+    </div>
+<!--    <div class="main-menu"> MENU </div>-->
+    <div class="menu-item"><a href="index.html" class="current">Home</a></div>
+    <div class="menu-item"><a href="https://github.com/">GitHub</a></div>
+    <div class="menu-item"><a href="http://robot.hnu.edu.cn/">RVC Lab</a></div>
+  </div>
 </td>
 <td id="layout-content">
 <div id="toptitle">
-<h1>FPGA-based surface defect detection with neural network</h1>
+<h1>基于FPGA与DNN的在线工业缺陷检测</h1>
 </div>
 <hr>
-<h2>About this Field</h2>
-<p>With the rapid development of artificial intelligence, deep neural network (DNN) has been widely used in industrial defect detection, intelligent driving, medical research, etc. However, DNN is still limited in the implementation of edge computing and mobile devices due to its characteristics of high model complexity and high computing resource consumption. Deploying deep learning algorithms using FPGA (Field-Programmable Gate Array) is one of the current hot research directions. FPGA is a reconfigurable hardware device that can be dynamically reprogrammed to adapt to different application requirements. Compared to traditional general-purpose processors, FPGA has advantages such as strong parallel processing capability and low power consumption, making it widely used for accelerating compute-intensive tasks.
-
-In the field of deep learning, FPGA can be used to accelerate the inference processes of neural networks. By mapping the computational tasks of neural networks onto FPGAs, efficient parallel computing can be achieved, thereby speeding up the model's inference speed. Additionally, FPGA can optimize specific neural network operations through customized hardware designs, improving computational efficiency.
+<h2>关于此领域</h2>
+<p>随着人工智能的快速发展，深度神经网络（DNN）已广泛应用于工业缺陷检测、智能驾驶、医学研究等领域。但DNN模型复杂度高、计算资源消耗大，在边缘计算和移动设备的实现上仍受到限制。使用FPGA（现场可编程门阵列）部署深度学习算法是当前的热门研究方向之一。FPGA是一种可重新配置的硬件设备，可以动态地重新编程以适应不同的应用需求。与传统通用处理器相比，FPGA具有并行处理能力强、功耗低等优势，使其广泛用于加速计算密集型任务。
+在深度学习领域，FPGA可用于加速神经网络的推理过程，通过定制的硬件设计来优化特定的神经网络运算，提高计算效率。通过将神经网络的计算任务映射到FPGA上，可以实现高效的并行计算，从而加快模型的推理速度。
 </p>
-<p style="text-align:center;">
-    <img src=overall.png width="1000px" height="400px"></p>
-    <!--<table><tr>-->
-<!--<td><img src=gif1.gif width="600px" height="400px"></td>-->
-<!--<td><img src=gif2.gif width="400px" height="400px" ></td>-->
-<!--</tr></table>-->
-<!--    <img src=gif1.gif width="600px" height="400px">-->
-<!--    <img src=gif2.gif width="600px" height="400px">-->
-<!--</td></tr></table>-->
-<hr>
-<h2>Some Visualization Demos</h2>
-<p>In this demo, we implemented the Yolo-v2 model based on the ZCU102[<a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">device</a>] development board, migrated the model according to different tasks, and quantize the model with 8 bits. Our project is based on this Project [<a href="https://github.com/dhm2013724/yolov2_xilinx_fpga">Code</a>], and our own code will be updated in the future.</p>
-  <div class="container">
-    <div class="item">
-      <img src="gif4.gif" width="400px" height="400px" alt="Image 1">
-      <p>FPGA system for PCB Defect Detection</p>
-    </div>
-    <div class="item">
-      <img src="gif3.gif" width="400px" height="400px" alt="Image 2">
-      <p>FPGA system for Universal Object Detection</p>
-    </div>
+<!--<p style="text-align:center;">-->
+<!--    <img src=overallv1.png width="1000px" height="447px"></p>-->
+
+<div style="display: flex;">
+  <div class="picItem">
+    <img src=overallv1.png  width="1000px" height="447px">
+    <p ></p>
   </div>
-  <p>The left image depicts our FPGA-based system for PCB defect detection, implemented using the YOLO-v2 model. The main steps are as follows:
-
-<p><b>1.Collect PCB dataset</b>: To train and test the model, we obtained a publicly available dataset of PCB defects[<a href="https://robotics.pkusz.edu.cn/resources/dataset/">Dataset</a>]. The dataset encompasses various types, sizes, and defect scenarios of PCB boards, including missing holes, mouse bites, open circuits, short circuits, stray copper, and miscellaneous defects.</p>
-
-<p><b>2.Data preprocessing</b>: Before using the dataset for training, preprocessing operations are performed. This includes tasks like image enhancement, resizing, cropping, and normalization to ensure data consistency and appropriate formatting.</p>
-
-<p><b>3.Model training</b>: Using the preprocessed dataset, we can initiate the training of the deep learning model based on YOLO-v2. The training process typically involves feeding the data into the model, performing forward and backward propagation, and updating the model's weights and biases through optimization algorithms.</p>
-
-<p><b>4.FPGA programming</b>: Upon completing the model training, we transform the model's parameters and structure into a form suitable for running on the FPGA. We optimize the model by quantizing it to 8 bits. Subsequently, we simulate the model using Xilinx HLS tool, perform circuit synthesis and implementation using Vivado.</p>
-
-<p><b>5.FPGA deployment</b>: To visualize the detection process, we first burned an Ubuntu system onto the ZCU102 development board, simplifying the connection of serial ports, screens, and other peripheral interfaces. Then, we develop an ARM program that, along with the bitstream generated in the previous step using Vivado, creates an executable file stored in the development board's SD card. The SD card also contains the Ubuntu system image, PCB defect detection dataset, and other necessary files.</p>
-
-<p><b>6.PCB defect detection</b>: Once the FPGA system is set up, we initiate the program according to the specified instructions, and input the PCB images to be detected into the system. The FPGA system performs rapid inference processing on the images, identifying and marking any existing defects.</p>
-
-<p>Through these steps, we can implement a PCB defect detection system based on the YOLO-v2 model and leverage the high-performance computing capabilities of the FPGA to achieve fast and accurate defect detection.</p>
+  <div class="picItem">
+    <img src=fpga.png width="600px" height="447px">
+    <p ></p>
+  </div>
+</div>
 <hr>
-<h2>Current Research Field</h2>
+<h2>一些 Demos</h2>
+<p>在本次demo中，我们基于ZCU102[<a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">device</a>]开发板实现了Yolo-v2模型，根据不同任务迁移模型，并对模型进行8位量化。我们的项目是在这个[<a href="https://github.com/dhm2013724/yolov2_xilinx_fpga">Project</a>]的基础上进行优化的，我们的代码将在整理后逐步开源。</p>
+
+  <div style="display: flex;">
+  <div class="picItem">
+    <img src=gif4.gif width="400px" height="400px">
+    <p >基于FPGA的PCB缺陷检测系统</p>
+  </div>
+  <div class="picItem">
+    <img src=gif3.gif width="400px" height="400px">
+    <p >基于FPGA的通用目标检测系统</p>
+  </div>
+  <div class="picItem">
+    <img src=gif5.gif width="500px" height="400px">
+    <p> 系统架构</p>
+  </div>
+  <div class="picItem">
+    <img src=dataset.png width="500px" height="400px">
+    <p> 数据集</p>
+  </div>
+</div>
+  <p>左图是基于FPGA的PCB缺陷检测系统，使用 YOLO-v2 模型实现。主要步骤如下:
+
+<p><b>1.收集数据集</b>: 为了训练和测试模型，我们获得了公开可用的 PCB 缺陷数据集[<a href="https://robotics.pkusz.edu.cn/resources/dataset/">Dataset</a>]. 该数据集涵盖了PCB板的各种类型、尺寸和缺陷场景，包括漏孔、老鼠咬伤、开路、短路、杂铜和杂项缺陷。</p>
+
+<p><b>2.数据预处理</b>: 在使用数据集进行训练之前，需要执行预处理操作。 这包括图像增强、调整大小、裁剪和标准化等任务，以确保数据一致性和适当的格式。</p>
+
+<p><b>3.模型训练</b>: 使用预处理后的数据集，我们可以开始基于YOLO-v2的深度学习模型的训练。 训练过程通常包括将数据输入模型、执行前向和后向传播，以及通过优化算法更新模型的权重和偏差。</p>
+
+<p><b>4.FPGA编程</b>: 完成模型训练后，我们将模型的参数和结构转换为适合在FPGA上运行的形式。 我们通过将模型量化为 8 位来优化模型。 随后，我们使用Xilinx HLS工具对模型进行仿真，并使用Vivado进行电路综合和实现。</p>
+
+<p><b>5.FPGA算法部署</b>: 为了可视化检测过程，我们首先将Ubuntu系统烧录到ZCU102开发板上，简化了串口、屏幕和其他外围接口的连接。 然后，我们开发一个 ARM 程序，与上一步使用 Vivado 生成的比特流一起创建一个可执行文件，存储在开发板的 SD 卡中。 SD卡还包含Ubuntu系统映像、PCB缺陷检测数据集和其他必要的文件。</p>
+
+<p><b>6.检测系统启动</b>: FPGA系统搭建完成后，我们根据指定的指令启动程序，将需要检测的PCB图像输入到系统中。 FPGA 系统对图像进行快速推理处理，识别现有缺陷。</p>
+
+<p>通过这些步骤，我们就可以实现一个基于YOLO-v2模型的PCB缺陷检测系统，并利用FPGA的高性能计算能力，实现快速、准确的缺陷检测。</p>
+<hr>
+<h2>研究方向</h2>
 <ul>
-<li><p>Design of Lightweight Model for Industrial Defect Detection.</p>
+<div style="display: flex;">
+  <div class="picItem">
+    <img src=model.png width="400px" height="400px">
+    <p >面向工业缺陷检测的轻量级模型设计</p>
+  </div>
+  <div class="picItem">
+    <img src=quan.png width="600px" height="400px">
+    <p >极低比特神经网络量化算法(小于4位)</p>
+  </div>
+  <div class="picItem">
+    <img src=verilog.png width="500px" height="400px">
+    <p>RTL级FPGA计算加速与优化</p>
+  </div>
+  <div class="picItem">
+    <img src=fpga1.png width="500px" height="400px">
+    <p>高光谱图像处理算法的FPGA实现</p>
+  </div>
+</div>
+</ul>
+<hr>
+<h2>依托项目</h2>
+<ul>
+<li><p>工业玻璃缺陷检测智能相机开发.</p>
 </li>
-<li><p>Extremely low bit quantization algorithm, especially below 4-bit.</p>
-</li>
-<li><p>RTL-level FPGA computing acceleration and optimization.</p>
-</li>
-<li><p>FPGA Implementation of Hyperspectral Compressed sensing Algorithm.</p>
+<li><p>高端医药光谱成像及智能检测分析仪器研制.</p>
 </li>
 </ul>
 <hr>
-<h2>Current Project</h2>
-<ul>
-<li><p>Development of Intelligent Camera for Industrial Glass Defect Detection.</p>
-</li>
-<li><p>Development of high-end medical spectral imaging and intelligent detection and analysis instruments.</p>
-</li>
-</ul>
-<hr>
-<h2>Under Reviewer</h2>
+<h2>审稿中的成果</h2>
 <ol>
-<li><p>Zhao B, Wang Y, Zhang H*, Zhang J, Chen Y, Yang Y, "4-bit CNN quantization method with compact LUT-Based Multiplier implementation on FPGA". IEEE Transactions on Instrumentation and Measurement.</p>
+<li><p>Zhao B, Wang Y, Zhang H*, Zhang J, Chen Y, Yang Y, "4-bit CNN quantization method with compact LUT-Based Multiplier implementation on FPGA". IEEE Transactions on Instrumentation and Measurement.(Under Review)</p>
 <li><p>王耀南,潘劲宇,张辉,毛建旭,朱青,赵禀睿,张金洲,陈煜嵘,苏学叁,尹阿婷. 一种基于医药高光谱检测网络的阈值感知低位量化方法[P]. 湖南省：CN115700806A,2023-02-07.[<a href="./patent2.caj">caj</a>]</p>
 </ol>
 <!--<h3>Recent publications </h3>-->
 <hr>
-<h2>Publications</h2>
+<h2>发表的成果</h2>
 <ol>
 <li><p>王耀南,赵禀睿,张辉,毛建旭,朱青,刘敏,周显恩,张金洲,尹阿婷,彭伟星,苏学叁,陈煜嵘. 卷积神经网络软硬件协同加速的异构SoC实现方法[P]. 湖南省：CN113240101B,2022-07-05.[<a href="./patent1.caj">caj</a>]</p>
 </li>
@@ -147,6 +231,68 @@ In the field of deep learning, FPGA can be used to accelerate the inference proc
 </li>
 </ol>
 <p><b>Note</b>: * indicates the corresponding author.</p>
-<p>If you are interested in this field and want to join our team, please contact me(neuzhaobr@163.com) or Prof. Zhang Hui(zhanghuihby@126.com). Thank you!</p>
+<h2>项目组成员</h2>
+  <div style="display: flex;">
+    <div class="picItem">
+      <img src=zbr.jpg width="120px" height="150px">
+      <p >赵禀睿（在读）</p>
+      <p >博士三年级</p>
+    </div>
+    <div class="picItem">
+      <img src=zjz.jpg width="120px" height="150px">
+      <p >张金洲（硕士毕业）</p>
+      <p >国防科大科研助理</p>
+    </div>
+    <div class="picItem">
+      <img src=pjy.jpg width="120px" height="150px">
+      <p >潘劲宇（在读）</p>
+      <p >硕士二年级</p>
+    </div>
+  </div>
+  <h2>学术&活动</h2>
+    <div style="display: flex;">
+      <div class="picItem">
+        <img src=1.jpg width="400px" height="300px">
+        <p >学术竞赛</p>
+      </div>
+      <div class="picItem">
+        <img src=2.jpg width="400px" height="300px">
+        <p >学术会议</p>
+      </div>
+      <div class="picItem">
+        <img src=3.jpg width="400px" height="300px">
+        <p >校企合作</p>
+      </div>
+      <div class="picItem">
+        <img src=4.jpg width="400px" height="300px">
+        <p >组会讨论</p>
+      </div>
+    </div>
+  <p><b>如果您对此领域感兴趣并想加入我们的研究, 请联系我(neuzhaobr@163.com)或者张辉老师(zhanghuihby@126.com).谢谢!<b></p>
+</td>
+</tr>
+</table>
+<footer class="footer">
+  <div>
+    <p>National Engineering Research Center of Robot Vision Perception and Control Technology (RVC)</p>
+    <p>Hunan University</p>
+    <p>Changsha, Hunan, P.R. China</p>
+  </div>
+  <div>
+    <p>Copyright  RVC 2023</p>
+    <p>Above Site All right reserved.</p>
+  </div>
+</footer>
+
+  <script>
+    var doc = document
+    function addScroll ()　{
+      var menu = doc.getElementsByClassName('menu-content')[0]
+      const top = doc.documentElement.scrollTop
+      menu.style= `margin-top: ${top}px` 
+    }
+
+    doc.addEventListener('scroll', addScroll.bind(this))
+  </script>
 </body>
 </html>
