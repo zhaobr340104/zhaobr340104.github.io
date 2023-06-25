@@ -1,5 +1,5 @@
 # zhaobr340104.github.io
-<p>本模板上线的网页是https://zhaobr340104.github.io/。</p>
+<p>本模板上线的网页是https://zhaobr340104.github.io/</p>
 <p>本工程目录下的包括两个部分：</p>
 <p><b>第一部分</b>是有关图片、视频、论文等资源(gif/png/mp4/jpg/pdf/caj)，大家需要按自己的内容去准备；</p>
 <p><b>第二部分</b>是index.html文件，大家在这个文件的基础上，用自己的资源和文字去替换里面对应部分就可以了。</p>
