@@ -57,6 +57,10 @@ h2 {
   font-size: 20px;
 }
 
+h3 {
+  font-size: 18px;
+}
+
 .picItem {
   display:flex;
   flex-direction:column;
@@ -132,8 +136,8 @@ h2 {
 </div>
 <hr>
 <h2>关于此领域</h2>
-<p>随着人工智能的快速发展，深度神经网络（DNN）已广泛应用于工业缺陷检测、智能驾驶、医学研究等领域。但DNN模型复杂度高、计算资源消耗大，在边缘计算和移动设备的实现上仍受到限制。使用FPGA（现场可编程门阵列）部署深度学习算法是当前的热门研究方向之一。FPGA是一种可重新配置的硬件设备，可以动态地重新编程以适应不同的应用需求。与传统通用处理器相比，FPGA具有并行处理能力强、功耗低等优势，使其广泛用于加速计算密集型任务。
-在深度学习领域，FPGA可用于加速神经网络的推理过程，通过定制的硬件设计来优化特定的神经网络运算，提高计算效率。通过将神经网络的计算任务映射到FPGA上，可以实现高效的并行计算，从而加快模型的推理速度。
+<p>随着人工智能的快速发展，深度神经网络（DNN）已广泛应用于工业缺陷检测、智能驾驶、医学研究等领域。然而，DNN模型存在复杂度高、计算资源消耗大等问题，在小功耗、低成本的边缘移动设备的实现上仍受到限制。FPGA是一种可重新配置的硬件设备，可以动态地重新编程以适应不同的应用需求。与传统通用处理器相比，FPGA具有并行处理能力强、功耗低等优势，使其广泛用于加速计算密集型任务。因此，使用FPGA（现场可编程门阵列）部署深度学习算法是当前的热门研究方向之一。
+在深度学习领域，FPGA可用于加速神经网络的推理过程，通过定制的硬件设计来优化特定的神经网络运算，提高计算效率。通过将神经网络的计算任务映射到FPGA上，可以实现小功耗、低成本的高效并行计算，扩展深度学习算法在工业检测等边缘端的应用潜能。
 </p>
 <!--<p style="text-align:center;">-->
 <!--    <img src=overallv1.png width="1000px" height="447px"></p>-->
@@ -150,11 +154,10 @@ h2 {
 </div>
 <hr>
 <h2>一些 Demos</h2>
-<p>在本次demo中，我们基于ZCU102[<a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">device</a>]开发板实现了Yolo-v2模型，根据不同任务迁移模型，并对模型进行8位量化。我们的项目是在这个[<a href="https://github.com/dhm2013724/yolov2_xilinx_fpga">Project</a>]的基础上进行优化的，我们的代码将在整理后逐步开源。</p>
-
+  <h3>(1)基于FPGA的PCB缺陷检测系统[<a href="./pcb.mp4">视频1</a>][<a href="./yolov2.mp4">视频2</a>]</h3>
   <div style="display: flex;">
   <div class="picItem">
-    <img src=gif4.gif width="350px" height="350px">
+    <img src=gif4_1.gif width="350px" height="350px">
     <p >基于FPGA的PCB缺陷检测系统</p>
   </div>
   <div class="picItem">
@@ -167,10 +170,10 @@ h2 {
   </div>
   <div class="picItem">
     <img src=dataset.png width="350px" height="350px">
-    <p> 数据集</p>
+    <p> PCB缺陷检测数据集</p>
   </div>
 </div>
-  <p>左图是基于FPGA的PCB缺陷检测系统，使用 YOLO-v2 模型实现。主要步骤如下:
+<p>在这个工作中，我们基于ZCU102[<a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">device</a>]开发板实现了Yolo-v2模型，根据PCB缺陷检测任务迁移模型，并对模型进行8位量化。我们的项目是在这个[<a href="https://github.com/dhm2013724/yolov2_xilinx_fpga">Project</a>]的基础上进行优化的，我们的代码将在整理后逐步开源。主要步骤如下:
 
 <p><b>1.收集数据集</b>: 为了训练和测试模型，我们获得了公开可用的 PCB 缺陷数据集[<a href="https://robotics.pkusz.edu.cn/resources/dataset/">Dataset</a>]. 该数据集涵盖了PCB板的各种类型、尺寸和缺陷场景，包括漏孔、老鼠咬伤、开路、短路、杂铜和杂项缺陷。</p>
 
@@ -185,8 +188,36 @@ h2 {
 <p><b>6.检测系统启动</b>: FPGA系统搭建完成后，我们根据指定的指令启动程序，将需要检测的PCB图像输入到系统中。 FPGA 系统对图像进行快速推理处理，识别现有缺陷。</p>
 
 <p>通过这些步骤，我们就可以实现一个基于YOLO-v2模型的PCB缺陷检测系统，并利用FPGA的高性能计算能力，实现快速、准确的缺陷检测。</p>
+  <h3>(2)基于FPGA的玻璃缺陷检测系统</h3>
+  <div style="display: flex;">
+  <div class="picItem">
+    <img src=glass_model2.png width="500px" height="300px">
+    <p >GlassNet网络结构</p>
+  </div>
+  <div class="picItem">
+    <img src=glass.jpg width="600px" height="300px">
+    <p >基于FPGA的GlassNet实现逻辑</p>
+  </div>
+  <div class="picItem">
+    <img src=glass_data.png width="400px" height="300px">
+    <p >玻璃表面缺陷检测数据集</p>
+  </div>
+</div>
+<p>在这个工作中，我们自主设计了GlassNet模型，基于Zynq7045芯片进行了模型的FPGA实现主要步骤如下:
+
+<p><b>1.收集数据集</b>: 为了训练和测试模型，我们从公司车间内收集了获采集了玻璃表面缺陷数据集,并且进行了像素级的标注。</p>
+
+<p><b>2.数据预处理</b>: 对数据集进行增强，包括旋转、上下翻转、垂直形变等手段。</p>
+
+<p><b>3.模型设计</b>: 设计了一种面向玻璃表面缺陷检测的语义分割轻量级CNN模型GlassNet。</p>
+
+<p><b>4.模型训练</b>: 使用预处理后的数据集，我们可以开始基于GlassNet的深度学习模型的训练。</p>
+
+<p><b>5.FPGA编程</b>: 由于芯片不同导致FPGA资源受限，与上一个工作不同，本工作我们使用Verilog代替HLS进行更细粒度、资源利用率更强的FPGA开发。</p>
+
+<p>通过这些步骤，我们就可以实现一个基于GlassNet模型的玻璃表面缺陷检测系统。</p>
 <hr>
-<h2>研究方向</h2>
+<h2>当前研究方向</h2>
 <ul>
 <div style="display: flex;">
   <div class="picItem">
@@ -210,22 +241,22 @@ h2 {
 <hr>
 <h2>依托项目</h2>
 <ul>
-<li><p>工业玻璃缺陷检测智能相机开发.</p>
+<li><p>工业玻璃缺陷检测智能相机开发.（企业项目）</p>
 </li>
-<li><p>高端医药光谱成像及智能检测分析仪器研制.</p>
+<li><p>高端医药光谱成像及智能检测分析仪器研制.（自科重大仪器项目）</p>
 </li>
 </ul>
 <hr>
-<h2>审稿中的成果</h2>
+<h2>投稿的工作</h2>
 <ol>
 <li><p>Zhao B, Wang Y, Zhang H*, Zhang J, Chen Y, Yang Y, "4-bit CNN quantization method with compact LUT-Based Multiplier implementation on FPGA". IEEE Transactions on Instrumentation and Measurement.(Under Review)</p>
-<li><p>王耀南,潘劲宇,张辉,毛建旭,朱青,赵禀睿,张金洲,陈煜嵘,苏学叁,尹阿婷. 一种基于医药高光谱检测网络的阈值感知低位量化方法[P]. 湖南省：CN115700806A,2023-02-07.[<a href="./patent2.caj">caj</a>]</p>
+<li><p>王耀南,潘劲宇,张辉,毛建旭,朱青,赵禀睿,张金洲,陈煜嵘,苏学叁,尹阿婷. 一种基于医药高光谱检测网络的阈值感知低位量化方法[P]. 湖南省：CN115700806A,2023-02-07.(已公开)[<a href="./patent2.caj">caj</a>]</p>
 </ol>
 <!--<h3>Recent publications </h3>-->
 <hr>
 <h2>发表的成果</h2>
 <ol>
-<li><p>王耀南,赵禀睿,张辉,毛建旭,朱青,刘敏,周显恩,张金洲,尹阿婷,彭伟星,苏学叁,陈煜嵘. 卷积神经网络软硬件协同加速的异构SoC实现方法[P]. 湖南省：CN113240101B,2022-07-05.[<a href="./patent1.caj">caj</a>]</p>
+<li><p>王耀南,赵禀睿,张辉,毛建旭,朱青,刘敏,周显恩,张金洲,尹阿婷,彭伟星,苏学叁,陈煜嵘. 卷积神经网络软硬件协同加速的异构SoC实现方法[P]. 湖南省：CN113240101B,2022-07-05.(已授权)[<a href="./patent1.caj">caj</a>]</p>
 </li>
 <li><p>Zhang J, Zhang H*, Zhao B, et al. FPGA implementation of neural network accelerator for PCB defect detection[C]//Third International Symposium on Computer Engineering and Intelligent Communications (ISCEIC 2022). SPIE, 2023, 12462: 630-637.[<a href="paper1.pdf">pdf</a>]</p>
 </li>
