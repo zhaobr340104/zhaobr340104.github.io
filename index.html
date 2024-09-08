@@ -188,6 +188,7 @@ h3 {
 <p><b>6.检测系统启动</b>: FPGA系统搭建完成后，我们根据指定的指令启动程序，将需要检测的PCB图像输入到系统中。 FPGA 系统对图像进行快速推理处理，识别现有缺陷。</p>
 
 <p>通过这些步骤，我们就可以实现一个基于YOLO-v2模型的PCB缺陷检测系统，并利用FPGA的高性能计算能力，实现快速、准确的缺陷检测。</p>
+
   <h3>(2)基于FPGA的玻璃缺陷检测系统</h3>
   <div style="display: flex;">
   <div class="picItem">
@@ -216,35 +217,60 @@ h3 {
 <p><b>5.FPGA编程</b>: 由于芯片不同导致FPGA资源受限，与上一个工作不同，本工作我们使用Verilog代替HLS进行更细粒度、资源利用率更强的FPGA开发。</p>
 
 <p>通过这些步骤，我们就可以实现一个基于GlassNet模型的玻璃表面缺陷检测系统。</p>
+
+   <h3>(3)片上计算的高光谱相机处理器研制及ISP数字系统设计</h3>
+  <div style="display: flex;">
+  <div class="picItem">
+    <img src=tuisao.png width="600px" height="300px">
+    <p >高光谱相机处理器设计</p>
+  </div>
+  <div class="picItem">
+    <img src=Hyper_camera.png width="600px" height="300px">
+    <p >相机处理器架构</p>
+  </div>
+</div>
+<p>在这个工作中，我们设计了自主知识产权的推扫式高光谱相机处理器，包括:
+
+<p><b>1.PCB设计</b>: 设计了核心板、接口板和CMOS板的原理图、布局布线、制板和贴片。</p>
+
+<p><b>2.高速接口</b>: 使用GTH光口的高速收发接口向上位机传输大规模高光谱图像。</p>
+
+<p><b>3.ISP设计</b>: 针对高光谱图像成像步骤，在相机上部署辐射校正等专用ISP算法。</p>
+
+<p><b>4.片上计算</b>: 针对后续的医药成分分析等任务，开展检测算法的FPGA片上部署。</p>
+
 <hr>
 <h2>当前研究方向</h2>
 <ul>
 <div style="display: flex;">
   <div class="picItem">
-    <img src=model.png width="350px" height="300px">
+    <img src=model.png width="400px" height="250px">
     <p >面向工业缺陷检测的轻量级模型设计</p>
   </div>
   <div class="picItem">
-    <img src=quan.png width="350px" height="300px">
+    <img src=quan.png width="400px" height="250px">
     <p >极低比特神经网络量化算法(小于4位)</p>
   </div>
   <div class="picItem">
-    <img src=verilog.png width="350px" height="300px">
+    <img src=verilog.png width="400px" height="250px">
     <p>RTL级FPGA计算加速与优化</p>
   </div>
   <div class="picItem">
-    <img src=fpga1.png width="350px" height="300px">
-    <p>高光谱图像处理算法的FPGA实现</p>
+    <img src=xiangji_yiyi.png width="400px" height="250px">
+    <p>高光谱相机处理器研制及ISP数字系统设计</p>
   </div>
 </div>
 </ul>
 <hr>
 <h2>依托项目</h2>
 <ul>
-<li><p>工业玻璃缺陷检测智能相机开发.（企业项目）</p>
+<li><p>基板玻璃软硬件协同在线智能检测设备研制.（湖南大学-中国移动揭榜挂帅项目，2024.1~至今）</p>
 </li>
-<li><p>高端医药光谱成像及智能检测分析仪器研制.（自科重大仪器项目）</p>
+<li><p>高端医药光谱成像及智能检测分析仪器研制.（国家自然科学基金重大仪器项目，2021.1~至今）</p>
 </li>
+ <li><p>基于区块链的工业机器视觉AI协同平台研发与产业化.（湖南省科技厅重点项目，2022.1~2023.12）</p>
+ </li>
+ <li><p>基于FPGA的复杂场景3C产品缺陷智能检测系统.（教育部产学研基金项目，2021.1~2021.12）</p>
 </ul>
 <hr>
 <h2>学术成果</h2>
@@ -256,6 +282,9 @@ h3 {
   <li><p>王耀南,赵禀睿,张辉等. 卷积神经网络软硬件协同加速的异构SoC实现方法[P]. 湖南省：CN113240101B,2022-07-05.</p>
   <li><p>王耀南,潘劲宇,张辉等. 一种基于医药高光谱检测网络的阈值感知低位量化方法[P]. 湖南省：CN115700806A,2023-02-07.</p>
   <li><p>王耀南,潘劲宇,张辉等.一种基于FPGA的全流水线医药高光谱图像神经网络分类方法[P].湖南省:CN116662593B,2023-10-27.</p>
+  <li><p>王耀南,赵禀睿,张辉等.一种用于神经网络模型量化的混合舍入方法[P].2023,实审中.</p>
+  <li><p>张辉,汪海,王耀南等.基于明暗场融合的基板玻璃缺陷图像自动对焦方法及系统[P].2024,长沙中心预审中.</p>
+  <li><p>王耀南,赵禀睿,张辉等.光谱图像检测模型、检测方法和片上计算的相机处理器[P].2024,长沙中心预审中.</p>
 </ol>
 <!--<h3>Recent publications </h3>-->
 <hr>
@@ -268,19 +297,19 @@ h3 {
       <p >博士四年级</p>
     </div>
     <div class="picItem">
-      <img src=pjy.jpg width="120px" height="150px">
-      <p >潘劲宇（在读）</p>
-      <p >硕士三年级</p>
-    </div>
-    <div class="picItem">
       <img src=wh.jpg width="120px" height="150px">
       <p >汪海（在读）</p>
-      <p >硕士一年级</p>
+      <p >硕士二年级</p>
+    </div>
+    <div class="picItem">
+      <img src=pjy.jpg width="120px" height="150px">
+      <p >潘劲宇（已毕业）</p>
+      <p >去向：海康威视(成都)</p>
     </div>
     <div class="picItem">
       <img src=zjz.jpg width="120px" height="150px">
       <p >张金洲（已毕业）</p>
-      <p >国防科大科研助理</p>
+      <p >去向：国防科大科研助理</p>
     </div>
   </div>
   <h2>学术&活动</h2>
